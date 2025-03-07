@@ -1,9 +1,9 @@
 {
-    "name": "ivan/dwes05_proyecto",
-    "description": "Gestión de Proyectos",
+    "name": "dawdistancia/listado_productos_familias",
+    "description": "Listado de productos y familias",
     "type": "project",
     "require": {
-        "eftec/bladeone": "4.8"
+        "eftec/bladeone": "^4.18"
     },
     "autoload": {
         "psr-4": {
