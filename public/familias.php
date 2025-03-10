@@ -9,12 +9,18 @@ use eftec\bladeone\BladeOne;
 use App\BD\BD;
 use App\Dao\FamiliaDao;
 
-$views = __DIR__ . '/../views';
+$views = __DIR__ . '/../vistas';
 $cache = __DIR__ . '/../cache';
 define("BLADEONE_MODE", 1); // (optional) 1=forced (test),2=run fast (production), 0=automatic, default value.
 $blade = new BladeOne($views, $cache);
 
-$bd = BD::getConexion();
+// Establece conexión a la base de datos PDO
+try {
+    $bd = BD::getConexion();
+} catch (Exception $error) {
+    echo $blade->run("cnxbderror", compact('error'));
+    die;
+}
 
 $familiaDao = new FamiliaDao($bd);
 
